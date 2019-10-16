@@ -19,7 +19,7 @@
     },
     {
     "kind": "BooleanProperty",
-    "name": "Transform",
+    "name": "transform",
     "defaultValue": false,
     "description": "Transform the data with a logicle."
     },

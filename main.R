@@ -7,7 +7,7 @@ library(clusterSim)
 
 
 
-matrix2flowset <- function(a_matrix){ 
+as_flowset <- function(a_matrix){ 
   
   minRange<- matrixStats::colMins(a_matrix)
   maxRange<- matrixStats::colMaxs(a_matrix)
@@ -29,24 +29,32 @@ matrix2flowset <- function(a_matrix){
 ctx = tercenCtx()
 data = ctx$as.matrix() 
 
+# put row names on matrix
 rownames(data) <- unite(ctx$rselect(), "rows_united", 1:ncol(ctx$rselect()))[,1, drop=TRUE]
+
+# transpose for flowCore
 data = t(data)
 
+# convert to flowset
+f_set <-  as_flowset(data)
 
-f_set <-  matrix2flowset(data)
+# initialize 
+start_clus =  as.integer(ctx$op.value('min_cluster_number'))
+end_clus =  as.integer(ctx$op.value('max_cluster_number'))
 
-start_clus = 3
-end_clus = 10
+run_dunn <- as.logical(ctx$op.value('dunn'))
+run_davies_bouldin <- as.logical(ctx$op.value('davies-boudin'))
+run_pseudo_f <- as.logical(ctx$op.value('pseudo_f'))
+run_silhoutte <- as.logical(ctx$op.value('silhoutte'))
 
-run_dunn <- FALSE
-run_davies_bouldin <- FALSE
-run_pseudo_f <- FALSE
-run_silhoutte <- FALSE
+transform_flag <- as.logical(ctx$op.value('transform'))
+transform_cols <- NULL
+if (transform_flag) transform_cols = c(1:ncol(data))
 
-
+# repeatedly call flowsom and calculate metrics
 tuning <- lapply(start_clus:end_clus, function(x) {
   
-  som <- FlowSOM(f_set, nClus = x, transform= TRUE, toTransform = c(1:ncol(data)),  colsToUse = c(1:ncol(data)))
+  som <- FlowSOM(f_set, nClus = x, transform  = transform_flag, toTransform = transform_cols,  colsToUse = c(1:ncol(data)))
   # Extracting vector of meta-clusters for each cell
   cluster_vector_num <- as.integer(som[[2]][som[[1]]$map$mapping[,1]])
   cluster_vector_label <- str_pad(as.character(cluster_vector_num), 2, pad = "0")
@@ -92,7 +100,7 @@ tuning <- lapply(start_clus:end_clus, function(x) {
 })
 
 tuning <- do.call(rbind, tuning)
-
 tuning <- tidyr::gather(tuning, key ="metrics_name", value = "metrics_value", -.ci, -cluster_label, -cluster_setting)
+
 tuning <- ctx$addNamespace(tuning)
 ctx$save(tuning)
