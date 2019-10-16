@@ -1,0 +1,51 @@
+{
+  "name": "flowsom2",
+  "description": "FlowSOM",
+  "tags": ["flowcytometry", "rnaseq"],
+  "authors": ["tercen"],
+  "urls": ["https://github.com/tercen/flowsomtuning_operator"],
+  "properties": [
+    {
+    "kind": "DoubleProperty",
+    "name": "min_cluster_number",
+    "defaultValue": 10,
+    "description": "minimum number of clusters"
+    },
+    {
+    "kind": "DoubleProperty",
+    "name": "max_cluster_number",
+    "defaultValue": 10,
+    "description": "maximum number of clusters"
+    },
+    {
+    "kind": "BooleanProperty",
+    "name": "Transform",
+    "defaultValue": false,
+    "description": "Transform the data with a logicle."
+    },
+    {
+    "kind": "BooleanProperty",
+    "name": "dunn",
+    "defaultValue": false,
+    "description": "calculate dunn metric"
+   },
+    {
+    "kind": "BooleanProperty",
+    "name": "davies_bouldin",
+    "defaultValue": false,
+    "description": "calculate davies_bouldin metric"
+   },
+    {
+    "kind": "BooleanProperty",
+    "name": "pseudo_f",
+    "defaultValue": false,
+    "description": "calculate pseudo_f metric"
+   },
+    {
+    "kind": "BooleanProperty",
+    "name": "silhouette",
+    "defaultValue": false,
+    "description": "calculate silhouette metric"
+   }
+  ]
+}
