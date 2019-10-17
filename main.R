@@ -57,7 +57,7 @@ end_clus =  as.integer(ctx$op.value('max_cluster_number'))
 run_dunn <- as.logical(ctx$op.value('dunn'))
 run_davies_bouldin <- as.logical(ctx$op.value('davies_bouldin'))
 run_pseudo_f <- as.logical(ctx$op.value('pseudo_f'))
-run_silhoutte <- as.logical(ctx$op.value('silhoutte'))
+run_silhouette<- as.logical(ctx$op.value('silhouette'))
 
 transform_flag <- as.logical(ctx$op.value('transform'))
 transform_cols <- NULL
@@ -102,7 +102,7 @@ tuning <- lapply(start_clus:end_clus, function(x) {
       stringsAsFactors = FALSE
     )
   }
-  if (run_silhoutte)      {
+  if (run_silhouette)      {
     results_df <- data.frame(
       results_df,
       silhouette = index.S(dist(som_data), cluster_vector_num),
