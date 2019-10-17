@@ -9,13 +9,13 @@
     "kind": "DoubleProperty",
     "name": "min_cluster_number",
     "defaultValue": 10,
-    "description": "minimum number of clusters"
+    "description": "Minimum number of clusters."
     },
     {
     "kind": "DoubleProperty",
     "name": "max_cluster_number",
     "defaultValue": 10,
-    "description": "maximum number of clusters"
+    "description": "Maximum number of clusters."
     },
     {
     "kind": "BooleanProperty",
@@ -27,25 +27,25 @@
     "kind": "BooleanProperty",
     "name": "dunn",
     "defaultValue": false,
-    "description": "calculate dunn metric"
+    "description": "Calculate dunn metric."
    },
     {
     "kind": "BooleanProperty",
     "name": "davies_bouldin",
     "defaultValue": false,
-    "description": "calculate davies_bouldin metric"
+    "description": "Calculate davies_bouldin metric."
    },
     {
     "kind": "BooleanProperty",
     "name": "pseudo_f",
     "defaultValue": false,
-    "description": "calculate pseudo_f metric"
+    "description": "Calculate pseudo_f metric."
    },
     {
     "kind": "BooleanProperty",
     "name": "silhouette",
     "defaultValue": false,
-    "description": "calculate silhouette metric"
+    "description": "Calculate silhouette metric."
    }
   ]
 }

@@ -3,7 +3,7 @@ library(tidyverse)
 library(flowCore)
 library(FlowSOM)
 library(clValid)
-library(clusterSim)
+library(clusterSimTrc)
 
 
 

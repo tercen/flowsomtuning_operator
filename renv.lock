@@ -8,6 +8,30 @@
       }
     ]
   },
+  "Bioconductor": {
+    "Repositories": [
+      {
+        "Name": "BioCsoft",
+        "URL": "https://bioconductor.org/packages/3.8/bioc"
+      },
+      {
+        "Name": "BioCann",
+        "URL": "https://bioconductor.org/packages/3.8/data/annotation"
+      },
+      {
+        "Name": "BioCexp",
+        "URL": "https://bioconductor.org/packages/3.8/data/experiment"
+      },
+      {
+        "Name": "BioCworkflows",
+        "URL": "https://bioconductor.org/packages/3.8/workflows"
+      },
+      {
+        "Name": "CRAN",
+        "URL": "https://cran.rstudio.com"
+      }
+    ]
+  },
   "Packages": {
     "ALL": {
       "Package": "ALL",
@@ -287,18 +311,18 @@
       "Repository": "CRAN",
       "Hash": "c555ac45354b45aee2025cc4e0e63559"
     },
-    "clusterSim": {
-      "Package": "clusterSim",
-      "Version": "0.47-3",
+    "clusterSimTrc": {
+      "Package": "clusterSimTrc",
+      "Version": "0.47-3.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "clusterSim",
       "RemoteUsername": "tercen",
-      "RemoteRef": "0.47-3.1",
-      "RemoteSha": "2db17449cf4cb35236b1d98f995afb6babb6d9ba",
-      "Hash": "071e468e3729f6ab2ef52a504d88472f"
+      "RemoteRef": "0.47-3.3",
+      "RemoteSha": "85ad475f06f137610e97ec0708bf519d8f192e93",
+      "Hash": "d4728adcd00ef85de1e64aee0ed0b233"
     },
     "codetools": {
       "Package": "codetools",
