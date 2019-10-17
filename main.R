@@ -43,7 +43,7 @@ start_clus =  as.integer(ctx$op.value('min_cluster_number'))
 end_clus =  as.integer(ctx$op.value('max_cluster_number'))
 
 run_dunn <- as.logical(ctx$op.value('dunn'))
-run_davies_bouldin <- as.logical(ctx$op.value('davies-boudin'))
+run_davies_bouldin <- as.logical(ctx$op.value('davies_boudin'))
 run_pseudo_f <- as.logical(ctx$op.value('pseudo_f'))
 run_silhoutte <- as.logical(ctx$op.value('silhoutte'))
 
@@ -82,6 +82,7 @@ tuning <- lapply(start_clus:end_clus, function(x) {
       stringsAsFactors = FALSE
     )
   }
+  
   if (run_pseudo_f)       {
     results_df <- data.frame(
       results_df,
