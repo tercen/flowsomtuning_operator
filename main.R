@@ -7,25 +7,37 @@ library(clusterSim)
 
 
 
-as_flowset <- function(a_matrix){ 
+as_flowset <- function(a_matrix) {
+  minRange <- matrixStats::colMins(a_matrix)
+  maxRange <- matrixStats::colMaxs(a_matrix)
+  range <- minRange - maxRange
   
-  minRange<- matrixStats::colMins(a_matrix)
-  maxRange<- matrixStats::colMaxs(a_matrix)
-  range<- minRange-maxRange
-  
-  df_params <- data.frame(name=colnames(a_matrix), desc=colnames(a_matrix), range=range, minRange=minRange, maxRange=maxRange)
+  df_params <-
+    data.frame(
+      name = colnames(a_matrix),
+      desc = colnames(a_matrix),
+      range = range,
+      minRange = minRange,
+      maxRange = maxRange
+    )
   a_params <- Biobase::AnnotatedDataFrame()
   Biobase::pData(a_params) <- df_params
-  Biobase::varMetadata(a_params) <- data.frame(labelDescription=c("Name of Parameter", "Description of Parameter","Range of Parameter","Minimum Parameter Value after Transformation","Maximum Parameter Value after Transformation"))
+  Biobase::varMetadata(a_params) <-
+    data.frame(
+      labelDescription = c(
+        "Name of Parameter",
+        "Description of Parameter",
+        "Range of Parameter",
+        "Minimum Parameter Value after Transformation",
+        "Maximum Parameter Value after Transformation"
+      )
+    )
   
   a_flowset <- flowCore::flowFrame(a_matrix, a_params)
   
 }
 
 
-# http://127.0.0.1:5402/#ds/e466d41ce38cb8344c394688130067d1/11-3
-# options("tercen.workflowId"= "e466d41ce38cb8344c394688130067d1")
-# options("tercen.stepId"= "11-3")
 ctx = tercenCtx()
 data = ctx$as.matrix() 
 
@@ -43,7 +55,7 @@ start_clus =  as.integer(ctx$op.value('min_cluster_number'))
 end_clus =  as.integer(ctx$op.value('max_cluster_number'))
 
 run_dunn <- as.logical(ctx$op.value('dunn'))
-run_davies_bouldin <- as.logical(ctx$op.value('davies_boudin'))
+run_davies_bouldin <- as.logical(ctx$op.value('davies_bouldin'))
 run_pseudo_f <- as.logical(ctx$op.value('pseudo_f'))
 run_silhoutte <- as.logical(ctx$op.value('silhoutte'))
 
