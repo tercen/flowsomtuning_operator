@@ -16,10 +16,6 @@ Input parameters|.
 ---|---
 `min_cluster_number`   | Minimum number of clusters to make
 `max_cluster_number`   | Maximal number of clusters to make
-`dunn`   | Compute Dunn Index
-`davies_bouldin`   | Compute Davies Bouldin Index
-`pseudo_f`| Compute the pseudo-F statistic
-`silhouette`| Compute the silhouette value
 `transform`| Transform data?
 `seed`   | Random seed
 
