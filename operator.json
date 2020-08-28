@@ -1,6 +1,6 @@
 {
   "name": "flowsomtuning",
-  "description": "FlowSOM",
+  "description": "FlowSOM tuning",
   "tags": ["flowcytometry", "rnaseq"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/flowsomtuning_operator"],
@@ -22,30 +22,6 @@
     "name": "transform",
     "defaultValue": false,
     "description": "Transform the data with a logicle."
-    },
-    {
-    "kind": "BooleanProperty",
-    "name": "dunn",
-    "defaultValue": false,
-    "description": "Calculate dunn metric."
-   },
-    {
-    "kind": "BooleanProperty",
-    "name": "davies_bouldin",
-    "defaultValue": false,
-    "description": "Calculate davies_bouldin metric."
-   },
-    {
-    "kind": "BooleanProperty",
-    "name": "pseudo_f",
-    "defaultValue": false,
-    "description": "Calculate pseudo_f metric."
-   },
-    {
-    "kind": "BooleanProperty",
-    "name": "silhouette",
-    "defaultValue": false,
-    "description": "Calculate silhouette metric."
-   }
+    }
   ]
 }
